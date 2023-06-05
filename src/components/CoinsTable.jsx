@@ -50,6 +50,7 @@ export default function CoinsTable() {
   const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [page, setPage] = useState(1);
+  const [count, setCount] = React.useState(0);
 
   // const { currency, symbol } = CryptoState();  
   
@@ -68,6 +69,7 @@ export default function CoinsTable() {
 
   const fetchCoins = async () => {
     setLoading(true);
+    
     try {
       // var { data } = await axios.get(CoinList());
     } catch (error) {
@@ -79,9 +81,22 @@ export default function CoinsTable() {
     setLoading(false);
   };
 
+  
+
+  // useEffect(function () {
+  //     const timeout = setTimeout(function () {
+  //       fetchCoins();
+  //       setCount(count + 1)
+  //       console.log('ENTRE')
+  //     }, 5000)
+      
+  //     return function ()  {
+  //         clearTimeout(timeout)
+  //     }
+  // }, [count])
+
   useEffect(() => {
     fetchCoins();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleSearch = () => {
