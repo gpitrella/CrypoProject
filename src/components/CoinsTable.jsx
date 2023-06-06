@@ -71,17 +71,14 @@ export default function CoinsTable() {
     setLoading(true);
     
     try {
-      // var { data } = await axios.get(CoinList());
+      var { data } = await axios.get(CoinList());
     } catch (error) {
       console.error(error);
     }
     
-
-    setCoins(DataTest);
+    setCoins(data);
     setLoading(false);
-  };
-
-  
+  };  
 
   // useEffect(function () {
   //     const timeout = setTimeout(function () {
